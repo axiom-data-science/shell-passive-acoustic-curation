@@ -7,7 +7,7 @@ The code in this repository shows the exploration and curation process for a 'da
 Data Availability and Provenance Statements
 -------------------------------------------
 
-The text representation of these harddrives ('text dummy' that was used to sort and curate final files) is available in the git repo as 'all_files.txt' It is approximately 16.4 million lines long.
+The text representation of these harddrives ('text dummy' that was used to sort and curate final files) is available in the git repo as `data/all_files.tar.xz` It is approximately 16.4 million lines long.
 
 
 These data were provided thanks to the partnership of Shell Oil Company, Greeneridge Sciences, and North Pacific Research Board. It was collected and analyzed as part of Chukchi Sea Environmental Science Program (CSESP).
@@ -87,7 +87,7 @@ Description of repostructure/programs/code
 ------------------------------------------
 
 ### Primary files
-
+- The text representation of these harddrives is available in `data/all_files.tar.xz`
 - The `notebooks` directory holds the R notebook files. `R-over-shell-drives-notebook.Rmd` and corresponding `R-over-shell-drives-notebook.html` files provide the step by step narrative, and example commands, including  command line, Python  and R manipulations, on how the final decision to curate the data was arrived at.
 - The `outputs` directory holds the text files listing approximately 1.5 million file paths, sorted by station (location) and year of collection. 
 - The `data/stationids.txt` file is the hand-sorted list of station IDs found in deployment metadata, that was used to curate the station-year file lists.
