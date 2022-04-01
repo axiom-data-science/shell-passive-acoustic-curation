@@ -1,0 +1,5 @@
+./ax66/shell/2008AMP/Call_detection/matlab_code/GMM_newer/GMM_sept09_2008/Archives/GMM_july08/GMM/GMM_old/misc/GMM_old/data/train/2A1B0862.WAV
+./ax66/shell/2008AMP/Call_detection/matlab_code/GMM_newer/GMM_sept09_2008/Archives/GMM_july08/GMM/GMM_old/misc/GMM_old/data/train/2A1B0862.WAV
+./ax66/shell/2008AMP/Call_detection/matlab_code/GMM_newer/GMM_sept09_2008/Archives/GMM_july08/GMM/GMM_old/misc/GMM_old/data/train/2A1B0862.WAV
+./ax66/shell/2008AMP/Call_detection/matlab_code/GMM_newer/GMM_sept09_2008/Archives/GMM_july08/GMM/GMM_old/misc/GMM_old/data/train/2A1B0862.WAV
+./ax66/shell/2008AMP/Call_detection/matlab_code/GMM_newer/GMM_sept09_2008/Archives/GMM_july08/GMM/GMM_old/misc/GMM_old/data/train/2A1B0862.WAV

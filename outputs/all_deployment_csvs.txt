@@ -1,0 +1,265 @@
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax33/fw/chukchi/2011-overwinter/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.orig.csv
+./ax66/shell/chukchi/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2008-summer/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax67/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax68/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo (2).csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.full.csv
+./ax75/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax75/fw/chukchi/2014-overwinter/deploymentInfo.csv
+./ax76/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax76/fw/chukchi/2014-summer/deploymentInfo-M15B.csv
+./ax77/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax77/fw/chukchi/2014-summer/deploymentInfo-M15B.csv
+./ax78/shell/kotzebue-sound/2015-summer/deploymentInfo.csv
+./ax79/shell/kotzebue-sound/2015-summer/deploymentInfo.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374973893.2013-07-28-01-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374979893.2013-07-28-02-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374972093.2013-07-28-00-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374982893.2013-07-28-03-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374985293.2013-07-28-04-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374981093.2013-07-28-03-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374990093.2013-07-28-05-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374996093.2013-07-28-07-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374995493.2013-07-28-07-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374992493.2013-07-28-06-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374978693.2013-07-28-02-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374970293.2013-07-28-00-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374997293.2013-07-28-07-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374971493.2013-07-28-00-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374988293.2013-07-28-05-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374993693.2013-07-28-06-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374975693.2013-07-28-01-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374982293.2013-07-28-03-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374983493.2013-07-28-03-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374998493.2013-07-28-08-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374993093.2013-07-28-06-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374991293.2013-07-28-06-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374972693.2013-07-28-00-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374984093.2013-07-28-04-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374987093.2013-07-28-04-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374994293.2013-07-28-06-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374987693.2013-07-28-05-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374984693.2013-07-28-04-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374997893.2013-07-28-07-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374990693.2013-07-28-05-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374996693.2013-07-28-07-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374979293.2013-07-28-02-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374977493.2013-07-28-02-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374991893.2013-07-28-06-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374976293.2013-07-28-01-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374986493.2013-07-28-04-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374978093.2013-07-28-02-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374981693.2013-07-28-03-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374994893.2013-07-28-07-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374980493.2013-07-28-03-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374976893.2013-07-28-02-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374975093.2013-07-28-01-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374974493.2013-07-28-01-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374985893.2013-07-28-04-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374973293.2013-07-28-01-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374988893.2013-07-28-05-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374989493.2013-07-28-05-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374970893.2013-07-28-00-21-33.csv
+./ax81/shell/chukchi/2009-overwinter/deploymentInfo.csv
+./ax81/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax81/fw/chukchi/2013-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax33/fw/chukchi/2011-overwinter/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.orig.csv
+./ax66/shell/chukchi/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2008-summer/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax67/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax68/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo (2).csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.full.csv
+./ax75/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax75/fw/chukchi/2014-overwinter/deploymentInfo.csv
+./ax76/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax76/fw/chukchi/2014-summer/deploymentInfo-M15B.csv
+./ax77/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax77/fw/chukchi/2014-summer/deploymentInfo-M15B.csv
+./ax78/shell/kotzebue-sound/2015-summer/deploymentInfo.csv
+./ax79/shell/kotzebue-sound/2015-summer/deploymentInfo.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374973893.2013-07-28-01-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374979893.2013-07-28-02-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374972093.2013-07-28-00-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374982893.2013-07-28-03-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374985293.2013-07-28-04-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374981093.2013-07-28-03-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374990093.2013-07-28-05-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374996093.2013-07-28-07-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374995493.2013-07-28-07-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374992493.2013-07-28-06-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374978693.2013-07-28-02-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374970293.2013-07-28-00-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374997293.2013-07-28-07-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374971493.2013-07-28-00-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374988293.2013-07-28-05-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374993693.2013-07-28-06-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374975693.2013-07-28-01-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374982293.2013-07-28-03-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374983493.2013-07-28-03-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374998493.2013-07-28-08-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374993093.2013-07-28-06-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374991293.2013-07-28-06-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374972693.2013-07-28-00-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374984093.2013-07-28-04-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374987093.2013-07-28-04-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374994293.2013-07-28-06-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374987693.2013-07-28-05-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374984693.2013-07-28-04-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374997893.2013-07-28-07-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374990693.2013-07-28-05-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374996693.2013-07-28-07-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374979293.2013-07-28-02-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374977493.2013-07-28-02-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374991893.2013-07-28-06-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374976293.2013-07-28-01-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374986493.2013-07-28-04-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374978093.2013-07-28-02-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374981693.2013-07-28-03-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374994893.2013-07-28-07-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374980493.2013-07-28-03-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374976893.2013-07-28-02-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374975093.2013-07-28-01-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374974493.2013-07-28-01-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374985893.2013-07-28-04-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374973293.2013-07-28-01-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374988893.2013-07-28-05-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374989493.2013-07-28-05-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374970893.2013-07-28-00-21-33.csv
+./ax81/shell/chukchi/2009-overwinter/deploymentInfo.csv
+./ax81/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax81/fw/chukchi/2013-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax33/fw/chukchi/2011-overwinter/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.orig.csv
+./ax66/shell/chukchi/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2008-summer/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax67/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax68/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo (2).csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.full.csv
+./ax75/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax75/fw/chukchi/2014-overwinter/deploymentInfo.csv
+./ax76/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax76/fw/chukchi/2014-summer/deploymentInfo-M15B.csv
+./ax77/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax77/fw/chukchi/2014-summer/deploymentInfo-M15B.csv
+./ax78/shell/kotzebue-sound/2015-summer/deploymentInfo.csv
+./ax79/shell/kotzebue-sound/2015-summer/deploymentInfo.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374973893.2013-07-28-01-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374979893.2013-07-28-02-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374972093.2013-07-28-00-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374982893.2013-07-28-03-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374985293.2013-07-28-04-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374981093.2013-07-28-03-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374990093.2013-07-28-05-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374996093.2013-07-28-07-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374995493.2013-07-28-07-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374992493.2013-07-28-06-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374978693.2013-07-28-02-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374970293.2013-07-28-00-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374997293.2013-07-28-07-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374971493.2013-07-28-00-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374988293.2013-07-28-05-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374993693.2013-07-28-06-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374975693.2013-07-28-01-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374982293.2013-07-28-03-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374983493.2013-07-28-03-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374998493.2013-07-28-08-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374993093.2013-07-28-06-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374991293.2013-07-28-06-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374972693.2013-07-28-00-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374984093.2013-07-28-04-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374987093.2013-07-28-04-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374994293.2013-07-28-06-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374987693.2013-07-28-05-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374984693.2013-07-28-04-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374997893.2013-07-28-07-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374990693.2013-07-28-05-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374996693.2013-07-28-07-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374979293.2013-07-28-02-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374977493.2013-07-28-02-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374991893.2013-07-28-06-11-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374976293.2013-07-28-01-51-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374986493.2013-07-28-04-41-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374978093.2013-07-28-02-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374981693.2013-07-28-03-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374994893.2013-07-28-07-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374980493.2013-07-28-03-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374976893.2013-07-28-02-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374975093.2013-07-28-01-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374974493.2013-07-28-01-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374985893.2013-07-28-04-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374973293.2013-07-28-01-01-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374988893.2013-07-28-05-21-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374989493.2013-07-28-05-31-33.csv
+./ax81/Shell Shallow Hazards 2013/AMAR D 216 - 2nd deployment/Temperature/AMAR 216.424.Chan_25-16bps.1374970893.2013-07-28-00-21-33.csv
+./ax81/shell/chukchi/2009-overwinter/deploymentInfo.csv
+./ax81/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax81/fw/chukchi/2013-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax33/fw/chukchi/2011-overwinter/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax50/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.csv
+./ax66/shell/chukchi/2007-overwinter/deploymentInfo.orig.csv
+./ax66/shell/chukchi/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2008-summer/2008-summer/deploymentInfo.csv
+./ax66/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax67/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax68/shell/chukchi/2015-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.Sept15Start.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.csv
+./ax70/cpai/chukchi/2009-summer/deploymentInfo.2009.01.11.csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo (2).csv
+./ax72/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.csv
+./ax73/shell/chukchi/2007-summer/deploymentInfo.full.csv
+./ax75/fw/chukchi/2014-summer/deploymentInfo.csv
+./ax75/fw/chukchi/2014-overwinter/deploymentInfo.csv
+./ax30/fw/chukchi/2010-overwinter/deploymentInfo.csv
+./ax33/fw/chukchi/2011-overwinter/deploymentInfo.csv
