@@ -2,8 +2,7 @@
 Overview
 --------
 
-The code in this repository shows the exploration and curation process for a 'data archeaology' project of retired digital storage for on-going passive acoustic projects hosted by Shell Oil off Alaska's shores. The goal was to examine 57 retired harddrives for re-usable passive acoustic data and metadata. This repository stores both R and Python code examples for how the files were listed, examined and eventually sorted. A text file representation of these 57 files was used to generate mostly machine organized outputs. It's an excellent exercise in text wrangling.
-
+The code in this repository shows the exploration and curation process for a 'data archeaology' project of retired digital storage for on-going passive acoustic projects hosted by Shell Oil off Alaska's shores. The goal was to examine 59 retired harddrives for re-usable passive acoustic data and metadata. This repository stores both R and Python code examples for how the files were listed, examined and eventually sorted. A text file representation of these 59 drives was used to generate mostly machine organized outputs. It's an excellent exercise in text wrangling.
 
 Data Availability and Provenance Statements
 -------------------------------------------
@@ -11,7 +10,7 @@ Data Availability and Provenance Statements
 The text representation of these harddrives ('text dummy' that was used to sort and curate final files) is available in the git repo as 'all_files.txt' It is approximately 16.4 million lines long.
 
 
-These data were provided thanks to the partnership of Shell Oil Company, Greeneridge Sciences, and North Pacific Research Board. It was collected and analyzed as part of Chekchi Sea Environmental Science Program (CSESP).
+These data were provided thanks to the partnership of Shell Oil Company, Greeneridge Sciences, and North Pacific Research Board. It was collected and analyzed as part of Chukchi Sea Environmental Science Program (CSESP).
 
 
 Many other data products have results from the same research effort, including:
@@ -84,27 +83,25 @@ Approximate time needed to reproduce the analyses on a standard desktop machine 
 
 The code was last run on a **8-core Intel-based desktop running Ubuntu 20.04.4 LTS**. 
 
-Description of programs/code
-----------------------------
+Description of repostructure/programs/code
+------------------------------------------
 
 ### Primary files
 
-- The `R-over-shell-drives-notebook.Rmd` and corresponding `R-over-shell-drives-notebook.html` files provide the step by step process , from command line to python to R manipulations, of how the final decision to curate the data was arrived at.
-- The `Final Outputs` directory holds the text files listing approximately 1.5 million file paths, sorted by station (location) and year of collection.
-- The `Stationids.txt` file is the hand-sorted list of station IDs found in deployment metadata, that was used to curate the station-year file lists.
-- The `periodIDS.txt` file is a plain text list of deployment periods found in deployment metadata related to these data.
-- The `summaryDF.csv` is an output of the R notebook, and lists for each of 57 drives, the number of csvs and wav files found in each drive. It assumes the file path ends in the file type extension (ie, .wav or .csv).
-- The `clean-deploy-dfs` directory holds the re-arranged deployment metadata sheets, with a single header and one row per instrument per deployment, for the acoustic sound collection.
-- The `StationMetadata.csv` file lists the stations used in curating the final file lists, along with the approximate average latitutde and longitude in degrees negative east, for the station. It also lists the years that station was monitored, according to available deployment metadata.
+- The `notebooks` directory holds the R notebook files. `R-over-shell-drives-notebook.Rmd` and corresponding `R-over-shell-drives-notebook.html` files provide the step by step narrative, and example commands, including  command line, Python  and R manipulations, on how the final decision to curate the data was arrived at.
+- The `outputs` directory holds the text files listing approximately 1.5 million file paths, sorted by station (location) and year of collection. 
+- The `data/stationids.txt` file is the hand-sorted list of station IDs found in deployment metadata, that was used to curate the station-year file lists.
+- The `data/periodIDS.txt` file is a plain text list of deployment periods found in deployment metadata related to these data.
+- The `outputs/summaryDF.csv` is an output of the R notebook, and lists for each of 57 drives, the number of csvs and wav files found in each drive. It assumes the file path ends in the file type extension (ie, .wav or .csv).
+- The `outputs/clean-deploy-dfs` directory holds the re-arranged deployment metadata sheets, with a single header and one row per instrument per deployment, for the acoustic sound collection. They are labeled by deployment and season. These were the most reliable metadata found in the project thus far.
+- The `Shell_data_rescue_StationMetadata.csv` file lists the stations used in curating the final file lists, along with the approximate average latitutde and longitude in degrees negative east, for the station. It also lists the years that station was monitored, according to available deployment metadata.
 
 ### Secondary files
 
-- Files in `R-scripts` demonstrate various exploratory steps in wrangling the text dummy, including splitting by drive, sorting and summarizing by directory level, and counting wav files. Some are attempts to 'do-it-all.'
+- Files in `src/r` are R scripts, including a `setup.R script`, that demonstrate various exploratory steps in wrangling the text dummy, including splitting by drive, sorting and summarizing by directory level, and counting wav files. Some are attempts to 'do-it-all.'
 - Files in `Rproj-Saves` are environment files saved out of RStudio that can be used to load a global environment with objects in use in various scripts. They were mainly used to speed up exploration by saving memory during run time.
-- Files in `CSV-copied` are results of scripts that find representations of csv files in the text dummy (for locating DeploymentInnfo sheets, for example)
-- Files in `R-over-shell-drives-notebook_files` are outputs from 'knitting' an html file from the RMarkdown notebook. (making pretty docs, etc). 
-- Files in `big_buckets` are results of text wrangling to sort wav files by stationID or other patterns in their filepath.
-- Files in `wav_dirs_buckets` are also results of text wrangling to sort wav files by stationID or other patterns in their filepath.
+- Files in `data/CSV-copied` are results of command line instruction that found csv files in the harddrives, according to information found in the text dummy (for locating DeploymentInfo sheets, in this case)
+- Files in `notebooks/R-over-shell-drives-notebook_files` are outputs from 'knitting' an html file from the RMarkdown notebook. (making pretty docs, etc). 
 
 
 ## References
