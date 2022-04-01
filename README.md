@@ -83,8 +83,8 @@ Approximate time needed to reproduce the analyses on a standard desktop machine 
 
 The code was last run on a **8-core Intel-based desktop running Ubuntu 20.04.4 LTS**. 
 
-Description of programs/code
-----------------------------
+Description of repostructure/programs/code
+------------------------------------------
 
 ### Primary files
 
