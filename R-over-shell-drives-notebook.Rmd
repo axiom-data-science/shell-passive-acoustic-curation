@@ -1,0 +1,876 @@
+---
+title: "R-over-shell-drives Notebook"
+output:
+  html_document: default
+  pdf_document: default
+df_print: paged
+editor_options:
+  chunk_output_type: console
+---
+
+# Front matter
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(treering, col="darkgreen", ylab="width", main="Gt Basin Bristlecone Pine 2805M, 3726-11810") # a base R command
+library(tidyverse) # the main library used in this notebook
+library(stringi) # string manipulation later on
+library(sets)
+print("let's get started")
+getwd()
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+# Introduction 
+We have 59 hard drives to explore from Shell (as in the oil company). We want to archive any useful raw data, our first goal being to find useful raw passive acoustic data.
+
+## About the drives
+These drives are organized as they were when they were discharged from Shell Oil Company to North Pacific Research Board. Axiom then proposed a small project to extract the passive acoustic data, a 'data archaeology' experiment in rescuing useful scientific data.
+
+That is to say, they're not organized according to any plan, but represent the way the hard drives were used by the scientists during active data management. There's a lot to be learned from them and their organization method, but the goal of the project was to 'rescue' audio files and their contextual metadata. 
+
+These drives were shipped across Alaska and the West Coast to be loaded directly onto Axiom servers, therefore allowing remote access by staff who would attempt the rescue. Axiom has the resulting inventory.
+
+Data from these drives have been archived already in some instances. Please see http://data.nodc.noaa.gov/accession/0093399 for one example.
+
+## About the problem
+There is no organization or README or particular point person from Shell attached to the project, so contextual information or institutional knowledge about the drives are limited.  
+The volume of information we're discussion across these 59 hard drives is large: 145.04 terabytes. So it's a very big system to access and peruse 'by hand' through a GUI file/folder explorer. Equally challenging to explore via single command line exercises like 'ls' and 'find'.  
+The types of files on them are varied, from .doc, to .docx, to pdf and wav, and even files without extensions in the name.  
+
+To summarize, we have to use machine methods to search out passive acoustic raw files and their accompanying description files (if any exist).
+
+# Methods
+## 1 Create 'dummy' records
+  After a lot of time working remotely with the drives, Chris built a script that ran over the course of a weekend. I outputted all the file paths to a single text document, all_files.txt (2+Gb in size). The script and a preview below.
+  
+```{python, python.reticulate = FALSE, eval=FALSE, include=FALSE}
+#Chris's python script that made the text dummies
+import os
+drives=[]
+
+#shelldrives is a text file of drive names made with ls -l >> /home/chris/Documents/shell.scratch/shell.drives
+shelldrives = open("/home/chris/Documents/shell.scratch/shell.drives", "r")
+
+for thing in shelldrives.readlines():
+ 	drives.append(thing)
+
+dirs_to_ignore = ["System Volume Information","_drive","$RECYCLE.BIN"]
+
+for i in drives:
+    drive = i.replace("\n","")
+    outfile = "/home/chris/projects/dc/shell.data.rescue/drive.invs/shell."+drive
+    f = open(outfile,"a")
+    in_dir = "/mnt/shell/"+drive
+    print("Starting to inventory "+in_dir)
+
+    for (dirpath, dirnames, filenames) in os.walk(in_dir):
+        for dirname in dirnames:
+            if dirname in dirs_to_ignore: 
+                pass
+            else:
+                for g in filenames:
+                    f.write(str(os.path.join(dirpath,g))+'\n')
+                for d in dirnames:
+                    f.write(str(os.path.join(dirpath,d))+'\n')
+```
+
+It looks kinda like this:
+  ```
+  /mnt/shell/ax29/_drive
+  /mnt/shell/ax29/System Volume Information
+  /mnt/shell/ax29/fw
+  /mnt/shell/ax29/System Volume Information/EfaData
+  /mnt/shell/ax29/fw/chukchi
+  /mnt/shell/ax29/fw/chukchi/2011-summer
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CLN90B
+  /mnt/shell/ax29/fw/chukchi/2011-summer/KL01
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CLN120B
+  /mnt/shell/ax29/fw/chukchi/2011-summer/WN20
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL05
+  /mnt/shell/ax29/fw/chukchi/2011-summer/BG01
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/acoustic-analysis-20111123T124920.log
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/030
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/Temperature_Channel
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/acoustic-analysis-20111123T124920.log
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/030
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/Temperature_Channel
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/030/Unit030chukchi2011-e1d282a3.E1D282A3.Chan_1-24bps.1311562201.2011-07-25-02-50-01.wav
+  /mnt/shell/ax29/fw/chukchi/2011-summer/CL20/030/Unit030chukchi2011-e1d282a3.E1D282A3.Chan_1-24bps.1316967601.2011-09-25-16-20-01.wav
+  ```
+  
+
+## 2 Read 'dummy' records into dataframe for tidy manipulation
+Now to create a list of the lines of text as an object in R that I can manipulate readily.
+
+```{r loop through read-in command}
+#make sure you're in the repo as needed
+
+columnNames = c("file_path","directory","subdirectory1", "subdirectory2","subdirectory3","subdirectory4","subdirectory5","subdirectory6","subdirectory7","subdirectory8","subdirectory9","subdirectory10", "subdirectory11", "subdirectory12", "subdirectory13", "subdirectory14", "subdirectory15" )
+# 
+all_fls_df <- read.delim("./all_files.txt", sep="/",
+                        col.names = columnNames, header = FALSE, comment.char="",
+                        blank.lines.skip=FALSE, fill =TRUE)
+#OR
+#df <- read.csv("all_fls_df.csv", header= TRUE)
+
+
+length(all_fls_df$file_path) #16,503,660
+```
+
+
+
+Then separate the huge single file to individual lists of each drive, to make it faster to work with.
+
+```{r make individual drive dfs}
+test_lst <- as_tibble(all_fls_df)%>% 
+  group_by(directory) %>% 
+  group_split()
+
+test_lst  <- test_lst[1:57] #exclude weird end data frames that were labels and megaSAS log, and also exclude 90 and 91, the NOAA-prepped things (what I consider not the raw stuff)
+
+
+```
+
+```{r do a memory clean up}
+rm(all_fls_df)
+gc(full=TRUE)
+
+```
+## 3 Create a filepath column for each drive's dataframe
+
+But these dataframes are much more useful with one column that does maintain the real filepaths, so to speak, as those will be the most useful outputs for actually copying and moving the audio files into curated batches.
+
+To do this I'll re-make the dataframes with the file path column. I want a list of the drives, so I can call that value as needed. 
+
+```{r loop to create seperate dfs}
+testlst <-  NULL
+i <- 1
+nam <-  NULL
+dat <- NULL
+for(thing in test_lst){
+  #get name ready
+  nam <- paste("df", thing$directory[1], sep="_")
+  print(nam)
+  dat <- unite(thing, col = "file_path", 1:17, na.rm = T, remove=TRUE, sep = "/") 
+  #print(head(df))
+  assign(nam, dat)
+  #make a list to iterate through
+  testlst[[i]] <- nam
+  i <- i+1
+}
+#make that list of names a list of callable objects
+new_path_dfs_lst <- lapply(testlst, get)
+
+
+gc()
+```
+
+
+Now I do not need all of these data frames so I'll use the list of names from creating the first dataframes to remove those 57 objects and free up space in my local machine.
+
+```{r remove earlier DFs }
+rm(list=as.character(testlst))
+rm(nam, dat, thing, df, test_lst)
+gc(full=T)
+```
+
+```{r trim the file_paths}
+#iterator
+i <-  1
+
+for(thing in new_path_dfs_lst){
+  thing$file_path <- trimws(thing$file_path, which="right", whitespace="/") #trim
+  new_path_dfs_lst[[i]] <- thing #re-assign
+  i <- i+1
+}
+gc(full=TRUE)
+```
+
+
+## 4 Find which drives have wav, csv, or xcl files
+### WAVS
+Now I'll make a loop to find any drives that have wav files present. Wav files are of particular interest (obviously) so I'm going to store these particularly in a new variable for future use.
+```{r find and write out wav file loop}
+#set iterator for in the loop, what I am actually going to iterate through is the list of drives I have stored in the list-object 'files'
+i <- 1
+all_wav_fls <- NULL
+#loop through the callable-objects list of dfs
+for(df in new_path_dfs_lst){
+  #use tidyverse stringr 'which' command to match a regular expressions pattern
+  wav_index <-str_which(df$file_path, regex(".wav$", ignore_case=TRUE))
+  
+  #get it's length
+  len <- length(wav_index)
+  #a print command to check, printing a call from a list will make it take a little bit of time
+  print(c(testlst[i],"wav files found:",len))
+  
+  #if there's any matches (a length over 0) write out those file paths to the outputs folder
+  if(len>0){
+    dir.create(path=paste("outputs/",testlst[i], sep=""))
+    df_wav <- df[wav_index,]
+    df_wav <-  df_wav %>% distinct()
+    write_lines(df_wav$file_path, file=paste("outputs/",testlst[i],"/wav-files_",testlst[i],".txt", sep=""))
+    all_wav_fls <- rbind(all_wav_fls, df_wav)
+    #write_lines(df_wav$file_path, file="outputs/all_wav_filepaths.txt", append=TRUE)
+  }
+  i <- i+1
+}
+```
+
+
+
+
+### CSVs
+Now I'll look for csvs, particularly the deploymentINFO.csv we know exists in at least a dozen places.
+
+```{r label="find and write out csv file loop", eval=FALSE, include=FALSE}
+
+#set iterator for in the loop, what I am actually going to iterate through is the list of drives I have stored in the list-object 'files'
+i <- 1
+
+#loop through the callable-objects list of dfs
+for(df in new_path_dfs_lst){
+  #use tidyverse stringr 'which' command to match a regular expressions pattern
+  csv_index <-str_which(df$file_path, regex(".csv$", ignore_case=TRUE))
+  
+  #get it's length
+  len <- length(csv_index)
+  #a print command to check, printing a call from a list will make it take a little bit of time
+  print(c(testlst[i],"csv files found:",len))
+  
+  #if there's any matches (a length over 0) write out those file paths to the outputs folder
+  if(len>0){
+    #check for the dir existing already, make it if it doesn't
+    ifelse(!dir.exists(paste("outputs/",testlst[i],sep="")), dir.create(paste("outputs/",testlst[i],sep="")), print("Folder exists"))
+    #make the dataframe, write out the file paths column from it with the right relative filepath
+    df_csv <- df[csv_index,]
+    df_csv <-  df_csv %>% distinct()
+    write_lines(df_csv$file_path, file=paste("outputs/",testlst[i],"/csv-files_",testlst[i],".txt", sep=""))
+    write_lines(df_csv$file_path, file="outputs/all_csv_filepaths.txt", append=TRUE)
+  }
+  i <- i+1
+}
+```
+
+### Excel
+In an effort to find more deployment info spreadsheets, let's look for excel style files.
+This ended up not being useful and is not included in this version of the notebook.
+
+```{r label="find and write out xls* file loop", include=FALSE, eval=FALSE}
+#set iterator for in the loop, 29 because my drives start their numbering at 29
+i <- 1
+
+#loop through the callable-objects list of dfs
+for(df in new_path_dfs_lst){
+  #use tidyverse stringr 'which' command to match a regular expressions pattern
+  xls_index <-str_which(df$file_path, regex(".xls*$|.xlsx$", ignore_case=TRUE))
+  
+  #get it's length
+  len <- length(xls_index)
+  print(c(testlst[i],"excel files found:",len))
+  
+  #if there's any matches (a length over 0) write out those file paths to the outputs folder
+  if(len>0){
+    #check for the dir existing already, make it if it doesn't
+    ifelse(!dir.exists(paste("outputs/",testlst[i],sep="")), dir.create(paste("outputs/",testlst[i],sep="")), print("Folder exists"))
+    #make the dataframe, write out the file paths column from it with the right relative filepath
+    df_xl <- df[xls_index,]
+    df_xl <-  df_xl %>% distinct()
+    write_lines(df_xl$file_path, file=paste("outputs/",testlst[i],"/xcl-files_",testlst[i],".txt", sep=""))
+  }
+  i <- i+1
+}
+```
+There are 7 drives with excel files in them, sometimes, over 1000 evidently?
+
+### Results, in sum, of what kinds of files where
+```{r make a summary table }
+summaryDF <-  as.data.frame(matrix(0, nrow=1, ncol=4, dimnames=list(NULL,c("drive", "WAVS", "CSVS", "EXCELS"))))
+i <- 1
+ #loop through the callable-objects list of dfs
+ for(df in new_path_dfs_lst){
+   #use tidyverse stringr 'which' command to match a regular expressions pattern
+   xls_index <-str_which(df$file_path, regex(".xls*$|.xlsx$", ignore_case=TRUE))
+   csv_index <-str_which(df$file_path, regex(".csv$", ignore_case=TRUE))
+   wav_index <-str_which(df$file_path, regex(".wav$", ignore_case=TRUE))
+   
+   #get it's length
+   len_xl <- length(xls_index)
+   len_csv <- length(csv_index)
+   len_wv <- length(wav_index)
+   
+   #a print command to check, printing a call from a list will make it take a little bit of time
+   #print(c(files[i],"wav files found:",len_wv,"csv files found", len_csv, "excel files found", len_xl))
+   
+   summaryDF[nrow(summaryDF)+1,] =c(testlst[[i]], len_wv, len_csv,len_xl)
+   
+   #iterator
+   i <-  i+1
+           
+ }
+```
+
+```{r nice summary table}
+print(summaryDF)
+
+write_csv(summaryDF, file="summaryDF.csv")
+```
+
+```{r keep track of those wav files}
+df <- as_tibble(NULL)
+for(thing in all_wav_fls){
+  df <-rbind(df, thing)
+}#1868585
+```
+###optional cleanups
+
+```{r optional cleanups}
+rm(
+  csv_index,
+  wav_index,
+  xls_index,
+  xlsx_index,
+  pth,
+  nam,
+  len_csv,
+  len_wv,
+  len_xl,
+  i,
+  thing,
+  summaryDF
+  )
+
+gc(full=TRUE)
+```
+There may be some warnings. Comment out objects as you see fit.
+
+
+## 5 Copy the files to local machine
+Now that  we have the file paths to where the deployment information sheets are, I can copy them from where they exist in the remote drives and store them in a directory of this git repo (AKA my local machine). 
+
+From here on operates mainly off the single dataframe of wav files.
+
+```{r Get WAV filepaths list in as dataframe}
+#df should be the dataframe holding only file_paths ending in .wav
+df[1:5,]
+length(df) #1868585
+gc(full=T)
+```
+
+### First, Deployment Info sheest. Start with getting the list of csv filepaths
+
+```{r label="get all csv filepaths", eval=FALSE}
+#read in the all_csvs file
+df_csvs <- read_lines(file="./outputs/all_csv_filepaths.txt")
+print(head(df_csvs))
+for(x in df_csvs){
+if(str_detect(x, "deployment")){
+  write(x, file="./outputs/all_deployment_csvs.txt", append=TRUE)
+}
+  else{print("no deployment csv")}
+}
+```
+
+### Copy the files from the remote drives
+
+The following code is representative of how I ran terminal command to get the files via the remote connection to the drives we have setup, it's not setup in this notebook for reproducibility yet.
+
+```{bash label="shell commands for copying files from remote", eval=FALSE}
+# --no-relative flag is what removes the folder/subfolder structure of the files. Otherwise sit will copy everything in the structure it's in. Useful for context, not for navigation. But it prevents files with the same nam
+rsync -ar / --files-from=/home/adrienne/Documents/R-over-shell-drives/outputs/all_deployment_csvs.txt /home/adrienne/Documents/R-over-shell-drives/outputs/deployment-csvs
+
+```
+Looking for, ultimately, 30 deployment files
+
+This command kept the directories in place. Since so many of the files were named the same thing and depended on their parent folder for further context (eg, deploymentInfo.csv saved in `2014-summer` folder), I used this method to get the files copied from remote, in duplicated directory/subdirectory structure,and just rearranged them afterwards by hand. 
+
+## 6 Use the csv files to make cleandeploymentinfo tables
+First, I'll loop over the deployment files and re-arrange them. This assumes the structre across all 30 is exactly the same, which has tested true in pilot runs.
+### Make the deployment DFs
+```{r, label="read in deployment dataframes",eval=FALSE, include=FALSE}
+#make a list to iterate through
+lst <-  NULL
+deploydflst <- NULL
+i <- 1
+fls <- list.files(path="./CSV-copied")
+#need to change to the directory as well: getwd()
+#loop through to re-structure deployment files that have 5 lines of header info
+
+for(f in fls){
+        #look for number of cols
+        wideness <- count.fields(file=paste("./CSV-copied/",f,sep=""),sep=",", comment.char = "",skip=5,blank.lines.skip = FALSE)
+        wideness <- max(wideness)
+        #make dataframe
+        dat <-read.table(file=paste("./CSV-copied/",f,sep=""), 
+                         header=F, sep="," ,
+                         blank.lines.skip = FALSE, comment.char="", 
+                         colClasses = c("character","character", "character"),
+                         col.names = 1:wideness) #read table
+        nam <- paste("deployDF", substr(f,1,12), i, sep = "_")
+        print(c(nam, "now a df"))
+        assign(nam, dat)
+        #make a list to iterate through
+        lst[[i]] <- nam
+        i <- i+1
+
+  }
+
+#that list isn't what I want, it's just names without pointing to the object DF in R, but this is:
+deploydflst <- lapply(lst, get)
+
+
+```
+
+### Clean the deploy dataframes into tidy/tight tables
+This is the part that really assumes all 30 of these spreadsheets follow the same shape.
+
+```{r label="clean deploydfs to clean dfs", eval=FALSE, include=FALSE}
+#go through the dataframes and make them clean deployment dataframes with tidy/long details
+freqPoints <- NULL
+i <- 1
+cleandeployDFslst <- NULL
+for (thing in deploydflst){
+  
+  #pull those three fixd values out of the header
+  clientid <- as.character(thing[3,2])
+  region<- as.character(thing[3,3])
+  period <- as.character(thing[3,4])
+  freqPoints <- (thing[5,2:(length(thing))])
+  freqPoints <-
+    freqPoints %>% stri_remove_empty(na_empty=TRUE) %>% as.character()
+  print(head(freqPoints))
+  
+  #build the header for this one
+  #less that column that describes but not with value the freqpoints cols
+  #needs stringi library 
+  tmp <- thing[6,1:24] %>% as.character()
+  print(tmp)
+  hdr <- c(tmp, freqPoints)
+  cat("this is the header",hdr)
+  
+  #trim the df to the cols/rows of deploy info
+  thing <- thing %>%
+    slice(-c(1:6))
+  colnames(thing) <- hdr[1:length(thing)] #this is a cheap trick to stop the loop from breaking when the length of the hdr is too many cols, which I assume means not all freq/calibration points were used
+  print(head(thing))
+  
+  #add the columns of the fixed information
+  thing <-  add_column(thing, .before="recorderId", clientid=clientid,region=region,period=period)
+  
+  #rename the deployment dataframe
+  nam <- paste("clean",lst[i], sep = "_")
+  print(nam)
+  assign(nam, thing)
+  cleandeployDFslst[[i]] <- nam
+  i <- i+1
+}
+
+#make a list pointing at the data frame object not just the names of those objects
+ clean_dfs_lst <- lapply(cleandeployDFslst, get)
+
+```
+
+
+
+### Write out the clean deployment DFs 
+
+```{r label="write out clean deployment dfs to csv", eval=FALSE, include=FALSE}
+#make iterator
+i <- 1
+#loop through DFs with write command , target location, and renaming effect
+for(thing in clean_dfs_lst){
+  #name the csv with context specifics
+  write_csv(thing, file=paste("./clean-deploy-dfs/raw/","clean-deploy_", cleandeployDFslst[i], ".csv",sep=""))
+  #add to iterator
+  i <- i+1
+}
+
+```
+
+We ended up with 16 unique deployments.
+Looking at the deployment sheets in spreadsheet software was a useful method for locating , for instance, tests for stations and year combinations. It was also th ebest way to get a list of StationIDs needed for the curation process. More metadata about each deployment exists, but these were the best accessible records.
+
+### Optionally remove objects in environment
+```{r optional remove objects in environment}
+#clean up what I don't need from that loop
+rm(wideness, dat, nam,f, thing, i)
+rm(list=as.character(lst))
+raw_deployslst <- lst
+rm(lst)
+gc()
+```
+
+## 7 Use the deploy info to find related wav files
+### First pull useful patterns out of deployment info sheets, like a list of stationIDs
+
+The working assumption for this method is that the `stationID` column of the `deploymentInfo` spreadsheets will hold all the patterns we need to find the related information for each deployment overview, by station.
+
+```{r eval=FALSE, include=FALSE, label="find patterns"}
+#getwd()
+pattrns <-  NULL
+t <- 1
+val_match <- NULL
+#discover unique patterns
+for (thing in clean_dfs_lst){
+
+  #get unique value out of 8th column, stationID
+  val <-unique(thing[,8]) 
+  print(val[1])
+  pattrns <- append(pattrns, val)
+  if(length(val)>=1){
+    #look for that pattern in wav files list
+    
+    write_lines(val_match, file=paste("./clean-deploy-dfs/patterns/stationIDs.txt",sep="" ))
+  }
+  else{print("so, there's not vals for this pattern of this deploydf")}
+
+}
+
+```
+
+First step is to get the pattern of seasons I want to use to find the relevant files.
+```{r "find pattern for season", eval=FALSE, include=FALSE}
+#getwd()
+pattrns <-  NULL
+t <- 1
+val_match <- NULL
+#discover unique patterns
+for (thing in clean_dfs_lst){
+
+  #get unique value out of 8th column, stationID
+  val <-unique(thing[,8]) 
+  print(val[1])
+  pattrns <- append(pattrns, val)
+  if(length(val)>=1){
+    #look for that pattern in wav files list
+    
+    write_lines(val_match, file=paste("./clean-deploy-dfs/patterns/stationIDs.txt",sep="" ))
+  }
+  else{print("so, there's not vals for this pattern of this deploydf")}
+
+}
+```
+Or in some cases, already having the hand .txt file already written out, reloading it:
+```{r}
+periodIDS <- read_lines("periodIDS.txt", )
+```
+
+Optional clean up:
+```{r more optional cleanups}
+#rm(list=as.character(cleandeployDFslst)) #remove all the clean deployment dfs if you don't need them
+rm(clientid, fls, freqPoints, period, hdr, region, tmp)
+rm(raw_deployslst)
+gc()
+```
+
+
+So now in a subdirectory of the clean deployment sheets, there's a txt file for patterns of interst in our detection work for finding wav files.
+
+### Next, determine a text wrangling or regex search strategy
+#### First, trimming the text dummy file to a single dataframe of all file_paths ending in .wav
+This choice was made to enable to high-level curation of files. 16.4 million files is too many to not use scripting tools to help 2 people understand its contents.
+To do this it's helpful to bind all of the file paths into a single dataframe that should be 1,868,585 long, or after removing duplicates, 1,746,318 items long.
+
+```{r get a df of all file paths ending in wav}
+#get a df of all wav file paths---------------------------
+df <- as_tibble(NULL)
+for(thing in all_wav_fls){
+  df <-rbind(df, thing)
+}
++
+  
+length(df$file_name) #1868585
+```
+
+```{r some more optional cleanups}
+rm(list=as.character(deploydflst))
+rm(list=as.character(cleandeployDFslst), short, long, thing, y)
+rm(list=as.character(testlst))
+```
+
+There are some options to see only the file names, rather than the whole path, if desired.
+
+```{r get a column of just file names, eval=FALSE, include=FALSE}
+  df$file_name <- NULL
+  df$file_name <- sub(".*/","",df$file_path)
+
+  test <- unique(df$file_name)
+  length(test) # 1 746 318
+
+```
+#### Understanding the match behavior of regex in stringr functions
+
+I'm going to experiment in a known search area, with multiple stringr functions, to check that I can reliable return results. Regex searches can be finicky, and it's worth understanding things like, will `CL5` match `CL50` , or will I need to use escape characters for `.` or `/` characters.
+It's important to note this is an example of testing Regex that was informed by also pulling up and looking at the values we were searching over (the .txt files, or the column of a dataframe) with human eyes as well, to assess outcomes.
+To start, I need my stationIDS as a character vector, without duplicates.
+
+```{r reading in stationds}
+stationIDS <- read_lines("./stationids.txt") #120 station IDS
+#stationIDS <- stationIDS %>% 
+  #stri_trans_toupper() %>% 
+  #str_sort(decreasing=TRUE) %>%
+  #stri_unique() #103 stationIDS after de-duping
+
+#Actually a hand sorted stationID list
+stationIDS[1:5]
+```
+Even after sorting, we discovered that the stationids list needed to be re-arranged so that shorter listed items were listed first, then the longer similar items. This yeilded better results for stationmatching.
+For example, `CL5` needed to be moved before `CL50`, by hand or with a further complicated sort function, to get the resulting list used in the next steps.
+
+```{r testing regex}
+  #An example looking for CL type stations in the StationIDS list
+  #looking for any station with "CL" at the start, I am looking for 13?
+  str_extract(stationIDS, pattern=regex("[CL]*")) #returns 13
+  str_extract(stationIDS, pattern=regex("CL*")) #returns 14 and 1 partial
+  str_extract(stationIDS, pattern=regex("CL+", ignore_case = TRUE)) #returns 13
+  str_extract(stationIDS, pattern=regex("[CL]*", ignore_case = TRUE)) #returns 13
+
+  str_detect(stationIDS, pattern=regex("CL+", ignore_case = TRUE)) #returns 13
+
+  str_subset(stationIDS, pattern=regex("CL+", ignore_case = TRUE)) #retutrns 13 patterns, like so:
+  #" [1] "CL5"     "CLN40"   "CLN90B"  "CLN120B" "CL50"    "CL05"    "CL10"    "CL15"    "CL15B"   "CL15_2"  "CL20"    "CL35"    "CLN80" 
+
+  #An example looking at matches for a station id in the file_path of a dataframe 
+  thing <-  new_path_dfs_lst[[1]] #let's look at one dataframe of wav file paths only
+  length(thing$file_path) #32365
+  x <- "CL20"
+  paste(x,"\\","/",sep="") #"CL20\\/" -escaping the slash
+  paste(x,"/",sep="") #"CL20/" -not escaping the slash
+
+  length(str_which(thing$file_path, regex(paste(x,"\\","/",sep=""), ignore_case = TRUE))) #returns 4856
+  length(str_which(thing$file_path, regex(paste(x,"/",sep=""), ignore_case = TRUE))) #4859 #so no need for escaping the slash
+
+  sum(str_detect(thing$file_path, regex(paste(x,"/",sep=""), ignore_case = TRUE))) #4859
+
+  length(str_subset(thing$file_path, pattern=regex(paste(x,"/",sep=""), ignore_case = TRUE))) #4859
+  length(str_subset(thing$file_path, pattern=regex(paste(x,"\\","/",sep=""), ignore_case = TRUE))) #4859
+
+```
+
+We also ended up using a list of years, as string-type values, rather than the extracted 'periods' of deployment. This broadened the net we used to find a year in the file path because some dpeloyments, such as 'over winter' needed to include 2 years.
+
+```{r build a list of years for searching with}
+yearIDS <- c("2007", "2014", "2015", "2009", "2010", "2011", "2013", "2012", "2008")
+```
+
+#### Using regex searching to find a stationID and a year in each File path (more text wrangling)
+The general method we agreed on, after much trial and error, was to sort these 1,868,585 wav file paths first by station ID (giving us a location) then by year (corresponding to metadata in deploymentInfo sheets).
+I did this in several steps, each one winnowing down the list of 1.8 million items, and we often stopped to weigh the pros and cons of 'losing' the files that were not cooperative to machine-actionable curation. This has emerged as the major takeaway from the whole project: if the files were not named or organized with strict discipline, they became incredibly difficult to 'dig up.'
+The steps, in general, are: Located the files with stationIDs, locate the files with year, create a dataframe that holds the filepath, station, year fo reach unique file path. Write out the unique file paths using the information in the dataframe.
+The dataframe technique was implemented after attemps to do mroe complicated regex searches that made less reliable curated products.
+
+
+```{r find wav files by station}
+#Using a stationIDS text file that was sorted, then human-arranged for priority, based on what we learned from reading through many many filepaths and directories in these 57 drives
+val_match <-  NULL
+total_len <- 0
+i <- 1
+for(x in stationIDS){
+  print(i)
+  #look for regex match to '{stationid}'
+  val <- str_subset(df$file_path, pattern=regex(paste(x,"/",sep=""), ignore_case = TRUE))
+  #if there are matches, keep the results:
+  
+  if(length(val)>0){
+    val <- unique(val) #dedupe it against itself
+    len <-  length(val) #get length for counting
+    print(c("so, station",x,"has length:", len, "like this", val[1])) #some sanity checking via print statement
+    
+    #write_lines(val, file=paste("outputs/stations-buckets/",x,"_located-wavs.txt", sep="")) #write lines out as desired
+    
+    val_match <- append(val_match, val) #keep big dataframe of only station-located filepaths
+    total_len <- total_len + len
+  } else print(c("this station found no matches?",x))
+  i <- i+1
+  
+}
+station_sort_not_unique <-  val_match #save that DF
+length(unique(val_match)) #1598214 now,
+stat_sort <- unique(val_match)
+
+```
+Because the length of these results (1,598,214) does not match all files that end in `.wav` (1,868,585), we used 'sets' to compare the difference, and have found that those ~300,000 files are organized too sporadically for machine-sorting. They're being taken on as a human-cruated data archive product.
+
+```{r using sets to get the items not included in a stationid-sort}
+library(sets)
+long <- as.set(df$value) #store t <- he longer station sort list (1.87 million)
+short <- as.set(stat_sort$value) #store the shorter station sort from the prioritized stations list (1.59 million)
+y <- set_symdiff(long,short) #get the things that are different, in theory the ones long has that short does not
+
+#look at those things
+write_lines(y, file="./outputs/set-difference.txt")
+
+```
+
+The next step is to use this output and try to located a year in the filepath, so that we can categorize each wav file by location and date, at least.
+
+```{r use the results of stationID sort to further sort by year}
+stat_year_sort <-  NULL
+i <-  1
+total_len <- 0
+fin_match <-  NULL
+for(t in yearIDS){
+  print(i)
+  #look for regex match to '{period}' in the val_match vector, a subset that is stationIDs in filepaths
+  #note removing the slash from the search term, just looking for the search term ANYWHERE
+  val <- str_subset(stat_sort, pattern=regex(paste(t,"-|-",t,sep=""), ignore_case = TRUE))
+  #if there are matches, keep the results:
+  
+  if(length(val)>0){
+    val <- unique(val) #dedupe it
+    len <-  length(val) #get length for counting
+    print(c("so,year",t,"has length:", len, "like this", val[1])) #checking via print statement
+    
+    #write_lines(val, file=paste("outputs/byYear/",t,"_located-wavs.txt", sep="")) #write lines out
+    
+    stat_year_sort <- append(stat_year_sort, val) #keep big dataframe of only station-located filepaths
+    total_len <- total_len + len
+  } else print(c("this yearfound no matches?",x))
+  i <- i+1
+  
+}
+total_len #1645659
+length(stat_year_sort) == total_len
+length(unique(stat_year_sort)) #1597892 
+
+
+```
+
+
+So the end result numbers differ by only about 500 file paths (1598214 and 1597892 )by refining the search method to include year. Given that we really want the data to be attached to their metadata, we accepted that, and consider those 500 file paths something we hope to find with the human-based curation planned for the future.
+
+The next step was to create a process to write the files out with both pieces of information in the file name, so that secure copying the wav files to their public access location can happen in the designated, curated 'buckets.'
+
+```{r make a sorted dataframe for optimal curation}
+sdf <-  unique(stat_year_sort)
+sdf <- as_tibble(sdf)
+length(sdf$value) #1597892
+head(sdf)
+```
+
+```{r add station and year columns based on search results}
+#test mutate function to make the thing
+x <-  stationIDS[6]
+
+sdf <- as_tibble(sdf) %>% 
+
+  mutate(station= case_when(str_detect(sdf$value, pattern=regex(paste(x,"/",sep=""), ignore_case = TRUE)) == TRUE ~ paste(x))
+  )
+
+sdf %>% filter(sdf$station == "WN10") %>% 
+  view()
+#works, 25K ish entries
+
+i <- 1
+sdf <-  sdf %>% 
+  mutate(year="0000")
+
+for(x in yearIDS){
+  print(c(x,i))
+  tmp_index <- str_which(sdf$value, pattern=regex(paste(x,"-|-",x,sep=""), ignore_case = TRUE))
+  l <- length(tmp_index)
+  if(l>0){
+    sdf[tmp_index,]$year <- x
+  }
+  i <- i+1
+}
+
+#Loop it
+
+i <- 1
+for(x in stationIDS){
+  print(i)
+  tmp_index <- str_which(sdf$value, pattern=regex(paste(x,"/",sep=""), ignore_case = TRUE))
+  l <- length(tmp_index)
+  if(l>0){
+    print(c(x,l))
+    sdf[tmp_index,]$station <- paste(x)
+  }
+  i <- i+1
+}
+
+sum(is.na(sdf$station)) #0
+length(unique(sdf$station)) #99,
+
+```
+There is now some kind of cool analysis that we can do to see a high level summary of these data.
+
+```{r label="looking around in the sorted data frame", eval=FALSE, include=FALSE}
+#how many files per year?
+sdf %>% group_by(sdf$year) %>% 
+  summarise(count=n()) %>% 
+  print()
+
+```
+
+#### Write out the txt files we will use to (securely)move around 1.6 million files
+Now for the final step, use this sorted dataframe to get the best possible 'bucket' to categorize a particular wav file into.
+
+```{r writing out the txt files}
+stat_options <- unique(sdf$station)
+time_options <- unique(sdf$year) #I could really just use yearIDS again
+
+i <- 1
+
+for(x in stat_options){ 
+  print(i)
+  thing <- sdf %>% 
+    filter(station == x)
+  
+  if(length(thing$value)>0){
+    for(t in time_options){
+      target <- thing %>% 
+        filter(year == t)
+      if(length(target$value)>0){
+        print(c("found",x,t,"looks like",target$value[1]))
+        write_lines(target$value, paste("outputs/nextTest/",x,"_",t,"_located-wavs.txt", sep=""))
+      }else(print(c("found",x,"but not",t)))
+    }
+  }else (print(c("WEIRDNESS no match to",x))) #because, that shouldn't happen right, I found the stations to use in the dataframe I"m looking at
+  }
+
+```
+
+Hooray! `\(^O^)/`
+
+### Now carefully copy those filepaths from the remote drives to my local machine, renamed with standard file names
+
+Again, I'm going to take this command directly to the terminal because I'm connected to the shell drives there and have had susccess with rsync commands that get this done.
+
+```{shell commands for copying wav files from remote using deployment-specific lists, eval=FALSE, include=FALSE}
+
+rsync -ar / --files-from=/home/adrienne/Documents/R-over-shell-drives/clean-deploy-dfs/located-wavs/clean_deployDF_2007-overwin_1wav-files.txt /home/adrienne/Documents/shell-outputs/2007-overwin-1-deployment-csvs
+
+```
+We should get 1.6 ish million files copied and moved around.
+
+
+# Results
+Now these files can be made publicly accessible under a standard organization.Some notes about the final presentation of these data:
+
+* All of the deployment information spreadsheets we used in this process, cleaned up to include frequency points in the single header, in the "Deployment Info" directory. 
+
+* The files are sorted first by Station (top level directories). A list of the stations, and their _approximate_ latitude and longitude can be found in the about-stations.txt file.
+
+* The next level of directory is the year the wav file was collected. These correspond to dates in the deployment info sheets, which can then provide further details about that particular recording instance.
+
+
+
+# Next
+As mentioned along the way, some of these files were organized in a way that was just different from each other and a standard structure, that they could not be sorted and discovered with a script. But, a human can logically see and understand the file path, or the file name, or the pattern of organization (pulling files into a folder labeled 'Analysis' for example). The human brain - still the most powerful processor we have.
+
+So the next steps for this data archaeology project is to look at the files we know are .wav files, but did not get captured with a regex search, with another mix of human and machine sorting and organization. This sometimes involves pulling file paths out and reading lines of text files, or pushing those text files into spreadsheets and using sort methods on them, or expanding or altering the regex search commands.
+
+# Back matter
+
+Adrienne Canino at Axiom Data Science adrienne@axiomdatascience.com
+Chris Turner at Axiom Data Science chris@axiomdatascience.com
+NPRB funding provided from 2019 to 2022, thank you NPRB! www.nprb.org
